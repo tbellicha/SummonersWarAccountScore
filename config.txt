@@ -1,0 +1,10 @@
+EFF:
+    100:1
+    110:2
+    120:3
+
+SET:
+    Despair:2
+    Destroy:2
+    Violent:3
+    Will:3

@@ -1,0 +1,10 @@
+set(INCROOT ${PROJECT_SOURCE_DIR}/src/Rune)
+set(SRCROOT ${PROJECT_SOURCE_DIR}/src/Rune)
+
+set(SRC
+    ${SRC} ${SRCROOT}/rune.cpp
+    PARENT_SCOPE)
+
+set(INCDIRS
+    ${INCDIRS} ${INCROOT}
+    PARENT_SCOPE)

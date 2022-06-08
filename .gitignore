@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+runes
+
+# Data
+*.json
+JSON/
+
+# IDEs
+.vscode
+
+# Build Data
+/build
+
+# Shame on you!
+vgcore.*

@@ -16,7 +16,7 @@
 
 ci:
   autoupdate_commit_msg: "[UPT] Update Pre-Commit hooks file"
-  autofix_commit_msg: "[REF] Pre-Commit fixes"
+  autofix_commit_msg: "[REF] Fit Pre-Commit hooks"
 
 repos:
 # Standard hooks

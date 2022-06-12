@@ -23,8 +23,8 @@ static void sortPods(std::vector<pods_t> &pod)
                 std::swap(pod[i], pod[j]);
 }
 
-extern std::map<rune_set, std::string> set_names;
-extern std::map<stat_id, std::string> stat_names;
+extern std::map<runes_set, std::string> runes_set_name;
+extern std::map<runes_stat_id, std::string> runes_stat_name;
 
 void Config::readEffPods(std::ifstream &file)
 {
@@ -53,9 +53,9 @@ void Config::readSetPods(std::ifstream &file)
             break;
         while (line[0] == ' ' || line[0] == '\t')
             line = &line[1];
-        for (size_t i = 0; i < set_names.size(); i++) {
-            if (set_names[(rune_set)i] == line.substr(0, line.find(':'))) {
-                curr_pod.value = (rune_set)i;
+        for (size_t i = 0; i < runes_set_name.size(); i++) {
+            if (runes_set_name[(runes_set)i] == line.substr(0, line.find(':'))) {
+                curr_pod.value = (runes_set)i;
                 break;
             }
         }

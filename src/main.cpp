@@ -70,27 +70,27 @@ void display_result(std::vector<Rune> &runes, Config &conf)
         }
         score += eff_pod * set_pod;
     }
-    std::cout << "Score: " << score << std::endl << std::endl;
+    std::cout << "\033[1;32mScore: \033[0m" << score << std::endl << std::endl;
     for (size_t i = 0; i < conf.getEffPods().size(); i++)
-        std::cout << "\t" << conf.getEffPods()[i].value;
-    std::cout << std::endl << "Rest";
+        std::cout << "\t\033[1;33m" << conf.getEffPods()[i].value;
+    std::cout << std::endl << "\033[0m\033[1;35mRest\033[0m";
     for (size_t i = 0; i < conf.getEffPods().size(); i++) {
         std::cout << "\t" << map_score[(runes_set)0][i];
         total_score[i] += map_score[(runes_set)0][i];
     };
     std::cout << std::endl;
     for (size_t y = 0; y < conf.getSetPods().size(); y++) {
-        std::cout << runes_set_name[(runes_set)conf.getSetPods()[y].value];
+        std::cout << "\033[1;35m" << runes_set_name[(runes_set)conf.getSetPods()[y].value] << "\033[0m";
         for (size_t x = 0; x < conf.getEffPods().size(); x++) {
             std::cout << "\t" << map_score[(runes_set)conf.getSetPods()[y].value][x];
             total_score[x] += map_score[(runes_set)conf.getSetPods()[y].value][x];
         }
         std::cout << std::endl;
     }
-    std::cout << "============================" << std::endl << "Total";
+    std::cout << std::endl << "\033[1;37mTotal";
     for (size_t i = 0; i < total_score.size(); i++)
         std::cout << "\t" << total_score[i];
-    std::cout << std::endl;
+    std::cout << "\033[0m" << std::endl;
 }
 
 int main(int argc, char **argv)
@@ -123,9 +123,12 @@ int main(int argc, char **argv)
             continue;
         }
         runes = file.getRunes();
-        std::cout << "--------[" << file.getWizardName() << "]--------" << std::endl;
+        std::cout << "--------[\033[1;36m" << file.getWizardName().substr(1, file.getWizardName().length() - 2) << "\033[0m]--------" << std::endl;
         display_result(runes, conf);
-        if (i < argc - 1)
+        if (i < argc - 1) {
             std::cout << std::endl;
+            if (argc > 2)
+                std::cout << "============================" << std::endl << std::endl;
+        }
     }
 }

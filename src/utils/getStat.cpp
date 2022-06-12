@@ -19,11 +19,11 @@ stat_t readMainStat(std::ifstream &file)
             getline(file, line);
             line = removeSpaces(line);
             line = line.substr(0, line.find(","));
-            main_stat.id = (stat_id)std::stoi(line);
+            main_stat.id = (runes_stat_id)std::stoi(line);
             getline(file, line);
             line = removeSpaces(line);
             line = line.substr(0, line.find(","));
-            main_stat.base_value = (stat_id)std::stoi(line);
+            main_stat.base_value = (runes_stat_id)std::stoi(line);
             main_stat.third = 0;
             main_stat.value_grind = 0;
             break;
@@ -45,11 +45,11 @@ stat_t readInnateStat(std::ifstream &file)
             getline(file, line);
             line = removeSpaces(line);
             line = line.substr(0, line.find(","));
-            innate_stat.id = (stat_id)std::stoi(line);
+            innate_stat.id = (runes_stat_id)std::stoi(line);
             getline(file, line);
             line = removeSpaces(line);
             line = line.substr(0, line.find(","));
-            innate_stat.base_value = (stat_id)std::stoi(line);
+            innate_stat.base_value = (runes_stat_id)std::stoi(line);
             innate_stat.third = 0;
             innate_stat.value_grind = 0;
             break;
@@ -71,19 +71,19 @@ void readSubStat(std::ifstream &file, stat_t *stats, size_t nb_subs)
                 getline(file, line);
                 line = removeSpaces(line);
                 line = line.substr(0, line.find(","));
-                stats[i].id = (stat_id)std::stoi(line);
+                stats[i].id = (runes_stat_id)std::stoi(line);
                 getline(file, line);
                 line = removeSpaces(line);
                 line = line.substr(0, line.find(","));
-                stats[i].base_value = (stat_id)std::stoi(line);
+                stats[i].base_value = (runes_stat_id)std::stoi(line);
                 getline(file, line);
                 line = removeSpaces(line);
                 line = line.substr(0, line.find(","));
-                stats[i].third = (stat_id)std::stoi(line);
+                stats[i].third = (runes_stat_id)std::stoi(line);
                 getline(file, line);
                 line = removeSpaces(line);
                 line = line.substr(0, line.find(","));
-                stats[i].value_grind = (stat_id)std::stoi(line);
+                stats[i].value_grind = (runes_stat_id)std::stoi(line);
                 // Skip the last line "],"
                 getline(file, line);
             }

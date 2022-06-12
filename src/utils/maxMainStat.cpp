@@ -9,7 +9,7 @@
 
 #include <map>
 
-std::map<stat_id, float> max_main_stat5 = {
+std::map<runes_stat_id, float> max_main_stat5 = {
     {STAT_HP, 2088},
     {STAT_HP_PCT, 51},
     {STAT_ATK, 135},
@@ -23,7 +23,7 @@ std::map<stat_id, float> max_main_stat5 = {
     {STAT_ACCURACY_PCT, 51},
 };
 
-std::map<stat_id, float> max_main_stat6 = {
+std::map<runes_stat_id, float> max_main_stat6 = {
     {STAT_HP, 2448},
     {STAT_HP_PCT, 63},
     {STAT_ATK, 160},

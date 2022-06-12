@@ -17,9 +17,9 @@ void Rune::setInfos(std::ifstream &file)
     } catch (std::exception &e) {
         return;
     }
-    this->_quality = (quality)stoi(getMemberValue(file, "rank"));
-    this->_nb_stars = (stars)stoi(getMemberValue(file, "class"));
-    this->_set = (rune_set)stoi(getMemberValue(file, "set_id"));
+    this->_quality = (runes_quality)stoi(getMemberValue(file, "rank"));
+    this->_nb_stars = (runes_stars)stoi(getMemberValue(file, "class"));
+    this->_set = (runes_set)stoi(getMemberValue(file, "set_id"));
     this->_main_stat = readMainStat(file);
     this->_innate_stat = readInnateStat(file);
     readSubStat(file, this->_sub_stats, this->_quality > 10 ? this->_quality - 11 : this->_quality - 1);
@@ -111,17 +111,17 @@ size_t Rune::getSlot(void) const
     return this->_slot;
 }
 
-quality Rune::getQuality(void) const
+runes_quality Rune::getQuality(void) const
 {
     return this->_quality;
 }
 
-stars Rune::getNbStars(void) const
+runes_stars Rune::getNbStars(void) const
 {
     return this->_nb_stars;
 }
 
-rune_set Rune::getSet(void) const
+runes_set Rune::getSet(void) const
 {
     return this->_set;
 }

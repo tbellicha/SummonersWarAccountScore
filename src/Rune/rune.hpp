@@ -13,7 +13,7 @@
 #include <unistd.h>
 
 // SET_ID
-enum rune_set {
+enum runes_set {
     SET_ENERGY = 1,
     SET_GUARD = 2,
     SET_SWIFT = 3,
@@ -38,7 +38,7 @@ enum rune_set {
 };
 
 // FIRST VALUE OF PREFIX/SEC_EFF
-enum stat_id {
+enum runes_stat_id {
     STAT_NONE = 0,
     STAT_HP = 1,
     STAT_HP_PCT,
@@ -54,7 +54,7 @@ enum stat_id {
 };
 
 // RANK
-enum quality {
+enum runes_quality {
     QUALITY_NORMAL = 1,
     QUALITY_MAGIC,
     QUALITY_RARE,
@@ -68,7 +68,7 @@ enum quality {
 };
 
 // CLASS
-enum stars {
+enum runes_stars {
     ONE = 1,
     TWO,
     THREE,
@@ -83,7 +83,7 @@ enum stars {
     SIX_ANTIC,
 };
 
-static std::map<rune_set, std::string> set_names = {
+static std::map<runes_set, std::string> runes_set_name = {
     {SET_ENERGY, "Energy"},
     {SET_GUARD, "Guard"},
     {SET_SWIFT, "Swift"},
@@ -107,7 +107,7 @@ static std::map<rune_set, std::string> set_names = {
     {SET_TOLERANCE, "Tolerance"},
 };
 
-static std::map<stat_id, std::string> stat_names = {
+static std::map<runes_stat_id, std::string> runes_stat_name = {
     {STAT_HP, "HP"},
     {STAT_HP_PCT, "HP%"},
     {STAT_ATK, "ATK"},
@@ -122,14 +122,14 @@ static std::map<stat_id, std::string> stat_names = {
 };
 
 typedef struct s_stat {
-    stat_id id;
+    runes_stat_id id;
     size_t base_value;
     size_t third;
     size_t value_grind;
 } stat_t;
 
-extern std::map<stat_id, float> max_main_stat5;
-extern std::map<stat_id, float> max_main_stat6;
+extern std::map<runes_stat_id, float> max_main_stat5;
+extern std::map<runes_stat_id, float> max_main_stat6;
 
 class Rune {
   public:
@@ -138,9 +138,9 @@ class Rune {
     void calculateEfficiency(void);
     std::string getID(void) const;
     size_t getSlot(void) const;
-    quality getQuality(void) const;
-    stars getNbStars(void) const;
-    rune_set getSet(void) const;
+    runes_quality getQuality(void) const;
+    runes_stars getNbStars(void) const;
+    runes_set getSet(void) const;
     stat_t getMainStat(void) const;
     stat_t getInnateStat(void) const;
     const stat_t *getSubStats(void) const;
@@ -152,11 +152,11 @@ class Rune {
     // slot_no
     size_t _slot;
     // rank
-    quality _quality;
+    runes_quality _quality;
     // class
-    stars _nb_stars;
+    runes_stars _nb_stars;
     // set_id
-    rune_set _set;
+    runes_set _set;
     // pri_eff
     stat_t _main_stat;
     // prefix_eff

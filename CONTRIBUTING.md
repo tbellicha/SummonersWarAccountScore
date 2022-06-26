@@ -1,6 +1,6 @@
 ## How to contribute
 
-#### **Did you find a bug?** / **Do you want to suggest somthing?**
+#### **Did you find a bug?** / **Do you want to suggest something?**
 
 * Create an issue at [this issue page](https://github.com/tbellicha/SummonersWarAccountScore/issues).
 

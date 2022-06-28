@@ -31,13 +31,13 @@ void Config::readEffPods(std::ifstream &file)
     std::string line;
     pods_t curr_pod;
 
-    while (getline(file, line)) {
+    while (std::getline(file, line)) {
         if (line == "")
             break;
         while (line[0] == ' ' || line[0] == '\t')
             line = &line[1];
-        curr_pod.value = std::stof(line.substr(0, line.find(':')));
-        curr_pod.coeff = std::stof(line.substr(line.find(':') + 1));
+        curr_pod.value = std::atof(line.substr(0, line.find(':')).c_str());
+        curr_pod.coeff = std::atof(line.substr(line.find(':') + 1).c_str());
         this->_effpods.push_back(curr_pod);
     }
     sortPods(this->_effpods);
@@ -48,7 +48,7 @@ void Config::readSetPods(std::ifstream &file)
     std::string line;
     pods_t curr_pod;
 
-    while (getline(file, line)) {
+    while (std::getline(file, line)) {
         if (line == "")
             break;
         while (line[0] == ' ' || line[0] == '\t')
@@ -59,7 +59,7 @@ void Config::readSetPods(std::ifstream &file)
                 break;
             }
         }
-        curr_pod.coeff = std::stof(line.substr(line.find(':') + 1));
+        curr_pod.coeff = std::atof(line.substr(line.find(':') + 1).c_str());
         this->_setpods.push_back(curr_pod);
     }
     sortPods(this->_setpods);
@@ -75,7 +75,7 @@ void Config::readConfigFile(void)
         throw std::exception();
     if (!file.is_open())
         throw std::exception();
-    while (getline(file, line)) {
+    while (std::getline(file, line)) {
         if (line == "EFF:")
             readEffPods(file);
         if (line == "SET:")

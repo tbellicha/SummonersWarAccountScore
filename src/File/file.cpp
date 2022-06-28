@@ -36,7 +36,7 @@ void ParserJSON::read_json(char *filepath)
         throw std::exception();
     this->_runes.clear();
     this->_wizard_name = getMemberValue(file, "wizard_name");
-    while (getline(file, line)) {
+    while (std::getline(file, line)) {
         Rune curr_rune;
         curr_rune.setID(getMemberValue(file, "rune_id"));
         curr_rune.setInfos(file);

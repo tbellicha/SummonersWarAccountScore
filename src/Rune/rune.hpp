@@ -10,7 +10,6 @@
 
 #include <fstream>
 #include <map>
-#include <unistd.h>
 
 // SET_ID
 enum runes_set {

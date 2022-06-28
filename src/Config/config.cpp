@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <string>
 extern "C"
 {
 #include <sys/stat.h>

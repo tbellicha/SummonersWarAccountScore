@@ -6,6 +6,7 @@ set(SRC)
 add_subdirectory(File)
 add_subdirectory(Rune)
 add_subdirectory(Config)
+add_subdirectory(Monster)
 add_subdirectory(utils)
 
 set(INCDIRS ${INCROOT})

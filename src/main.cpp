@@ -7,6 +7,7 @@
 
 #include "Config/config.hpp"
 #include "File/file.hpp"
+#include "Monster/monster.hpp"
 #include "Rune/rune.hpp"
 
 #include <iomanip>

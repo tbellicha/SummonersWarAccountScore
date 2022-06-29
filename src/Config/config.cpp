@@ -66,6 +66,23 @@ void Config::readSetPods(std::ifstream &file)
     sortPods(this->_setpods);
 }
 
+void Config::readMonsters(std::ifstream &file)
+{
+    std::string line;
+    monsters_t curr_monster;
+
+    while (std::getline(file, line)) {
+        if (line == "")
+            break;
+        while (line[0] == ' ' || line[0] == '\t')
+            line = &line[1];
+        curr_monster.name = line.substr(0, line.find(':'));
+        curr_monster.element = line.substr(line.find(':') + 1, line.size() - (line.find(':') + 1) - 2);
+        curr_monster.nb_stars = std::atof(line.substr(line.find(':', line.find(':') + 1) + 1).c_str());
+        this->_monsters.push_back(curr_monster);
+    }
+}
+
 void Config::readConfigFile(void)
 {
     std::ifstream file(CONFIG_FILEPATH);
@@ -81,6 +98,8 @@ void Config::readConfigFile(void)
             readEffPods(file);
         if (line == "SET:")
             readSetPods(file);
+        if (line == "MONSTERS:")
+            readMonsters(file);
     }
 }
 
@@ -92,4 +111,9 @@ std::vector<pods_t> Config::getEffPods(void) const
 std::vector<pods_t> Config::getSetPods(void) const
 {
     return this->_setpods;
+}
+
+std::vector<monsters_t> Config::getMonsters(void) const
+{
+    return this->_monsters;
 }

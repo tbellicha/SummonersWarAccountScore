@@ -70,15 +70,20 @@ void display_result(std::vector<Rune> &runes, Config &conf)
         }
         score += eff_pod * set_pod;
     }
+    // Total score
     std::cout << "\033[1;32mScore: \033[0m" << score << std::endl << std::endl;
     for (size_t i = 0; i < conf.getEffPods().size(); i++)
         std::cout << "\t\033[1;33m" << conf.getEffPods()[i].value;
     std::cout << std::endl << "\033[0m\033[1;35mRest\033[0m";
+
+    // Each step of efficiency pod
     for (size_t i = 0; i < conf.getEffPods().size(); i++) {
         std::cout << "\t" << map_score[(runes_set)0][i];
         total_score[i] += map_score[(runes_set)0][i];
     };
     std::cout << std::endl;
+
+    // Line of each sets
     for (size_t y = 0; y < conf.getSetPods().size(); y++) {
         std::cout << "\033[1;35m" << runes_set_name[(runes_set)conf.getSetPods()[y].value] << "\033[0m";
         for (size_t x = 0; x < conf.getEffPods().size(); x++) {
